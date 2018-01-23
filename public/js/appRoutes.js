@@ -18,9 +18,9 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controller: 'GeekController'	
 		})
 
-		.when('/zpx', {
-			templateUrl: 'views/zpx.html',
-			controller: 'zpxCtrl'	
+		.when('/todo', {
+			templateUrl: 'views/todo.html',
+			controller: 'todoCtrl'	
 		});
 
 	$locationProvider.html5Mode(true);

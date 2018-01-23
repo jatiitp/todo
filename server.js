@@ -28,8 +28,8 @@ app.use(express.static(__dirname + '/public')); // set the static files location
 require('./app/routes')(app); // pass our application into our routes
 
 // start app ===============================================
-db.connect('mongodb://localhost:27017/Apiria', function(err) {
-	console.log("Welcome to ZPX");
+db.connect('mongodb://localhost:27017/SmartBeings', function(err) {
+	console.log("Welcome to Smart Beings");
   if (err) {
     console.log('Unable to connect to Mongo.')
     process.exit(1)
