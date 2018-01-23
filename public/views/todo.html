@@ -1,0 +1,38 @@
+<div >
+  <div id="snackbar">{{snackHead}}</div>
+  <div class="container">
+    <div>To-Do list</div>
+    <div class="col-lg-12" ng-repeat="item in todoList track by $index">
+        <div class="col-lg-6 todo-main" ng-if="!item.edit">
+            <input id="Name" ng-model="item.todoData" class="form-control"   aria-required="true" aria-invalid="false" disabled="">
+        </div>
+        <div class="col-lg-6 todo-main" ng-if="item.edit">
+            <input id="Name" ng-model="item.todoData" class="form-control"   aria-required="true" aria-invalid="false">
+        </div>
+        <div class="col-lg-6 todo-main" ng-if="!item.edit">
+            <div class="">
+                <button class="btn btn-primary" ng-click="edit($index)">Edit</button>
+                <button class="btn btn-danger" ng-click="delete($index)">Delete</button>
+            </div>
+        </div>
+        <div class="col-lg-6 todo-main" ng-if="item.edit">
+            <div class="">
+                <button class="btn btn-success" ng-click="save($index)">Save</button>
+                <button class="btn btn-warning" ng-click="cancel($index)">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-12">
+        <div class="col-lg-6 todo-add">
+            <input id="Name" ng-model="todoData" class="form-control"   aria-required="true" aria-invalid="false">
+        </div>
+         <div class="col-lg-6 todo-main">
+            <div class="">
+                <button class="btn btn-info" ng-click="addMore(todoData)">Add</button>
+            </div>
+        </div>
+    </div>
+
+  </div>
+</div>
