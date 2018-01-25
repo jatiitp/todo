@@ -29,6 +29,7 @@ module.exports = function(app) {
 	  	
 	})
 
+
 	app.post('/saveData', function(req, res) {
   		
   		var data = req.body;
@@ -39,17 +40,15 @@ module.exports = function(app) {
   		var query = {
   			'dateNow' : data.dateNow
   		}
-  		console.log(query);
-  		console.log(update);
-  		
-  		// var newValue = {$set: update};
+
         var newValue = {$set: {'todoData': data.todoData}};
-		collection.updateOne(query, newValue, {upsert: true}, function(err, data) {
+		collection.update(query, newValue, function(err, data) {
 
             if (err) {
                 console.log('err', err)
             } else {
             	console.log("Done*********************");
+            	res.send({success: true})
             }
         });
 	  	
@@ -59,7 +58,7 @@ module.exports = function(app) {
 		var data = req.body;
 		console.log(data);
 
-	  	var collection = db.getCollection('todo')
+	  	var collection = db.getCollection('todo');
 	  	collection.remove({ "todoData": data.todoData, "dateNow" : data.dateNow}, function(err, result) {
 			if(err) {
 				res.send({success: false})
