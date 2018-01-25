@@ -17,6 +17,7 @@ angular.module('todoCtrl', []).controller('todoCtrl', function($scope, $http) {
                 $scope.todoList = resp.data.docs;
                 console.log($scope.todoList);
                 $scope.hideAll();
+                $scope.todoData = '';
                 // $scope.fetchDataByName($scope.todoList[$scope.todoList.length - 1], $scope.todoList.length - 1);
                 
             }, function(resp) {
