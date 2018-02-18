@@ -1,6 +1,43 @@
 <div >
   <div id="snackbar">{{snackHead}}</div>
   <div class="container">
+    <div>Employee Details</div>
+    <div class="col-lg-12">
+        <div class="col-lg-6 input-data">
+            <label class="input-name">First Name</label>
+            <input id="Name" ng-model="employeeData.firstName" type="text" ng-pattern ="/^[a-zA-Z\s]*$/" class="form-control"   aria-required="true" aria-invalid="false" >
+        </div>
+        <div class="col-lg-6 input-data">
+            <label class="input-name">Last Name</label>
+            <input id="Name" ng-model="employeeData.lastName" type="text" ng-pattern ="/^[a-zA-Z\s]*$/" class="form-control"   aria-required="true" aria-invalid="false" >
+        </div>
+        <div class="form-group col-md-6">
+            <label class="control-label">Designation</label>
+            <div class="inputBox">
+                <select class="soflow" ng-model="employeeData.designation">
+                    <option value="Assistant Manager">Assistant Manager</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Software Engineer">Software Engineer</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-6 input-data">
+            <label class="input-name">Age</label>
+            <input id="Name" ng-model="employeeData.age" class="form-control"   aria-required="true" aria-invalid="false" >
+        </div>
+        <div class="col-lg-12 add-main">
+            <div class="">
+                <button class="btn btn-info add-btn" ng-click="addMore(employeeData)">Add</button>
+            </div>
+        </div>
+        
+    </div>
+  </div>
+</div>
+
+<!-- <div >
+  <div id="snackbar">{{snackHead}}</div>
+  <div class="container">
     <div>To-Do list</div>
     <div class="col-lg-12" ng-repeat="item in todoList track by $index">
         <div class="col-lg-6 todo-main" ng-if="!item.edit">
@@ -35,4 +72,4 @@
     </div>
 
   </div>
-</div>
+</div> -->

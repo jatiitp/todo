@@ -13,12 +13,12 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controller: 'NerdController'
 		})
 
-		.when('/geeks', {
+		.when('/existing', {
 			templateUrl: 'views/geek.html',
 			controller: 'GeekController'	
 		})
 
-		.when('/todo', {
+		.when('/add', {
 			templateUrl: 'views/todo.html',
 			controller: 'todoCtrl'	
 		});
