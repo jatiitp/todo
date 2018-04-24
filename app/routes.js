@@ -7,7 +7,7 @@ module.exports = function(app) {
 
 
 	app.get('/getData', function(req, res) {
-	  var collection = db.getCollection('employee')
+	  var collection = db.getCollection('todo')
 
 	  collection.find().toArray(function(err, docs) {
 	    res.send({docs: docs, success : true})
@@ -15,8 +15,9 @@ module.exports = function(app) {
 	})
 
 	app.post('/saveDataManual', function(req, res) {
+		
 		var data = req.body;
-	  	var collection = db.getCollection('employee')
+	  	var collection = db.getCollection('todo')
   		
   		collection.insert(data, function(err, result) {
 			if(err) {
@@ -31,16 +32,16 @@ module.exports = function(app) {
 
 	app.post('/saveData', function(req, res) {
   		
-  		var dataEdit = req.body;
-	  	var collection = db.getCollection('employee')
+  		var data = req.body;
+	  	var collection = db.getCollection('todo')
   		var update = {
-  			'data' : dataEdit.data
+  			'todoData' : data.todoData
   		}
   		var query = {
-  			'date' : dataEdit.date
+  			'dateNow' : data.dateNow
   		}
 
-        var newValue = {$set: {'data': dataEdit.data}};
+        var newValue = {$set: {'todoData': data.todoData}};
 		collection.update(query, newValue, function(err, data) {
 
             if (err) {
@@ -54,10 +55,11 @@ module.exports = function(app) {
 	})
 
 	app.post('/delete', function(req, res) {
-		var dataDelete = req.body;
+		var data = req.body;
+		console.log(data);
 
-	  	var collection = db.getCollection('employee');
-	  	collection.remove({ "data": dataDelete.data, "date" : dataDelete.date}, function(err, result) {
+	  	var collection = db.getCollection('todo');
+	  	collection.remove({ "todoData": data.todoData, "dateNow" : data.dateNow}, function(err, result) {
 			if(err) {
 				res.send({success: false})
 			}  else {
